@@ -23,6 +23,8 @@ defmodule Teller.Client do
 
   def make_request(_, _, _), do: {:error, :unknown_resource}
 
+  @spec decrypt_account_number(client_reference :: tuple(), account_number :: binary()) ::
+          {:ok, binary()}
   def decrypt_account_number(client_reference, account_number) do
     GenServer.call(client_reference, {:decrypt_account, account_number})
   end
