@@ -1,0 +1,27 @@
+
+version: '3'
+
+services:
+   app:
+      build:
+         context: .
+      env_file: 
+         - .env
+      ports:
+         - '4000:4000'
+      depends_on:
+         - postgres
+   postgres:
+      image: postgres:15.3-alpine
+      environment:
+         POSTGRES_USER: postgres
+         POSTGRES_PASSWORD: postgres
+         PGDATA: /var/lib/postgresql/data/pgdata
+         POSTGRES_DB: exbank_dev
+      restart: always
+      ports:
+         - '5432:5432'
+      volumes:
+         - pgdata:/var/lib/postgresql/data
+volumes:
+   pgdata:
