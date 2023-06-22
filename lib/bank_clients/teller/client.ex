@@ -14,7 +14,7 @@ defmodule Teller.Client do
   @mname "Teller.Client"
 
   @spec make_request(client_reference :: tuple(), resource :: atom(), params :: map()) ::
-          {:ok, map()} | {:error, atom() | map()}
+          {:ok, map()} | {:error, atom() | map() | binary()}
   def make_request(client_reference, resource, params \\ %{})
 
   def make_request(client_reference, resource, params) when resource in @resources_available do
