@@ -5,7 +5,6 @@ defmodule Exbank.BankProviders.Teller do
   alias Teller, as: TellerClient
 
   use Exbank.BankProviders.Provider,
-    client: TellerClient.client(),
     client_manager: TellerClientManager
 
   require Logger
